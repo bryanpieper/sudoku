@@ -48,8 +48,8 @@ def generate(request):
     grid_alias = hashlib.sha224(grid_str).hexdigest()
     
     ip_address = request.META['REMOTE_ADDR']
-    #if 'HTTP_X_FORWARDED_FOR' in request.META:
-    #    ip_address = request.META['HTTP_X_FORWARDED_FOR']
+    if 'HTTP_X_FORWARDED_FOR' in request.META:
+        ip_address = request.META['HTTP_X_FORWARDED_FOR']
     user_agent = request.META['HTTP_USER_AGENT']
     
     gs = GeneratedSudoku(alias=grid_alias)
