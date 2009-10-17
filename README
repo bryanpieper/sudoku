@@ -25,7 +25,7 @@ from django.contrib import admin
 admin.autodiscover()
 urlpatterns = patterns('',
     (r'^sudoku/', include('sudoku.urls')),
-    (r'^padmin/(.*)', admin.site.root),
+    (r'^admin/(.*)', admin.site.root),
 )
 
 
