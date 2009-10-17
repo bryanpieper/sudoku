@@ -3,6 +3,9 @@ Django 1.1 sudoku python module
 Installation
 Setup the following django files as follows.  The templates are not included since they are customized for my site. If you want them, please ask.
 
+The core sudoku puzzle code is in __init__.py
+
+
 ./settings.py:
 
 INSTALLED_APPS = (
