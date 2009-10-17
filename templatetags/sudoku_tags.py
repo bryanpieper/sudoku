@@ -27,6 +27,24 @@ register = template.Library()
 
 @register.filter
 def answer(value):
+    """
+    Answers Filter.
+    Example:
+    {% load sudoku_tags %}
+    <table cellpadding="0" cellspacing="0" border="0">
+    {% for row in grid %}
+        <tr>
+            {% for num in row %}
+                <td>
+                    <div id="sd-{{i}}{{j}}" class="s-numd s-num{% if not num %}-blank{% endif %}">
+                        {{ num|answer|safe }}                    
+                    </div>
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}    
+    </table> 
+    """    
     if value < 0:
         return '<span class="s-ans">%d</span>' % (value * -1)
     else:
