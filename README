@@ -1,0 +1,29 @@
+Django 1.1 module
+
+Installation
+Setup the following django files as follows.  The templates are not included since they are customized for my site. If you want them, please ask.
+
+./settings.py:
+
+INSTALLED_APPS = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.admin',
+    'sudoku',
+)
+
+
+./urls.py
+
+from django.conf.urls.defaults import *
+from django.contrib import admin
+admin.autodiscover()
+urlpatterns = patterns('',
+    (r'^sudoku/', include('sudoku.urls')),
+    (r'^padmin/(.*)', admin.site.root),
+)
+
+
+
