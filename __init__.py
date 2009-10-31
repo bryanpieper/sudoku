@@ -53,7 +53,7 @@ def generate_sudoku():
     
     # max time alloted to create grid, if exceeded, will restart and try another
     # random set
-    max_time = 0.25    
+    max_time = 0.02   
     
     # setup matrix and buckets with random values
     def setup_grids():
@@ -92,6 +92,9 @@ def generate_sudoku():
     # bucket check
     bucket_filter = lambda b: len(b) > 0
     
+    # sanity limit
+    round_timelimit = 0.001
+    
     while 1:
         setup_grids()
         
@@ -118,9 +121,7 @@ def generate_sudoku():
                 matrix[i] = next_row
                 
                 # sanity check time/count
-                round_start = time.time()
-                round_timelimit = 0.005
-                iter = 0
+                round_start = time.time()                
                 
                 while len(next_row) < grid_size:
                     
@@ -135,7 +136,6 @@ def generate_sudoku():
                         random.shuffle(row_copy)
                         row = row_copy[:]
                         y = 0
-                        iter = 0
                         round_start = time.time()
                     
                     for num in row[:]:
@@ -145,8 +145,6 @@ def generate_sudoku():
                             y += 1
                             # we are done with the bucket value
                             row.remove(num)
-                    
-                    iter += 1
 
         if not filter(bucket_filter, buckets):
             break
@@ -228,7 +226,7 @@ def time_grids():
     Print grid timing output
     """
     start = time.time()
-    num = 500
+    num = 1000
     high = 0
     low = 9999
     for n in xrange(num):
@@ -263,10 +261,10 @@ def time_grids():
         
     
 if __name__ == '__main__':
-    matrix = generate_sudoku()
-    print_grid(matrix)
-    print ''
-    print_grid(masked_grid(matrix, factor=4))
+    #matrix = generate_sudoku()
+    #print_grid(matrix)
+    #print ''
+    #print_grid(masked_grid(matrix, factor=4))
     
-    #time_grids()
+    time_grids()
     
