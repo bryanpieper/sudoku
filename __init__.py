@@ -85,7 +85,7 @@ def generate_sudoku():
                     if matrix[(_x + _i)][(_y + _j)] == val:
                         return True
                 except IndexError:
-                    pass
+                    break
              
         return False
     
@@ -234,6 +234,10 @@ def time_grids():
     for n in xrange(num):
         _start = time.time()
         matrix = generate_sudoku()
+        
+        #if not valid_grid(matrix):
+        #    print 'invalid'
+        
         _end = time.time()
         _duration = _end - _start 
         
@@ -263,5 +267,6 @@ if __name__ == '__main__':
     print_grid(matrix)
     print ''
     print_grid(masked_grid(matrix, factor=4))
-
+    
+    #time_grids()
     
