@@ -23,7 +23,8 @@ THE SOFTWARE.
 """
 
 from django.test import TestCase
-from thepiepers import sudoku 
+
+import sudoku
 
 class SudokuTest(TestCase):
     def test_gen(self):

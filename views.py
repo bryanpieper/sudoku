@@ -36,7 +36,7 @@ def generate(request):
     """
     Generate the grid and redirect to grid view
     """
-    from thepiepers import sudoku
+    import sudoku
     import hashlib
     from sudoku.models import marshal_grid
     from django.http import HttpResponseRedirect
@@ -90,7 +90,7 @@ def answers(request, alias):
     Get sudoku answers
     """
     from sudoku.models import unmarshal_grid
-    from thepiepers import sudoku
+    import sudoku
     
     try:
         gs = GeneratedSudoku.objects.get(alias=alias)

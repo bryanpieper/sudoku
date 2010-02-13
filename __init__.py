@@ -261,10 +261,10 @@ def time_grids():
         
     
 if __name__ == '__main__':
-    #matrix = generate_sudoku()
-    #print_grid(matrix)
-    #print ''
-    #print_grid(masked_grid(matrix, factor=4))
+    matrix = generate_sudoku()
+    print_grid(matrix)
+    print ''
+    print_grid(masked_grid(matrix, factor=4))
     
-    time_grids()
+    #time_grids()
     
